@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Idea Playground</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Idea Playground</h1>
+      <p class="tagline">Validate and prioritize story ideas — fast.</p>
+    </header>
+
+    <main class="main">
+      <section class="panel input-panel" aria-label="Idea input and prediction">
+        <div class="input-side">
+          <label for="ideaInput" class="visually-hidden">Story Idea</label>
+          <textarea
+            id="ideaInput"
+            class="idea-input"
+            rows="3"
+            placeholder="Type your story idea…"
+            autocomplete="off"
+            spellcheck="true"
+          ></textarea>
+
+          <div class="actions">
+            <div class="status" id="status">
+              <span id="statusText">Waiting for input…</span>
+              <span class="spinner" id="spinner" aria-hidden="true"></span>
+            </div>
+            <button id="submitBtn" class="cta" hidden>Submit Idea</button>
+          </div>
+        </div>
+
+        <div class="gauge-side" aria-live="polite">
+          <div class="gauge-card">
+            <div class="gauge-title">Predicted Page Views</div>
+            <div class="gauge" id="gauge" aria-label="Page view prediction gauge" role="img">
+              <!-- SVG Speedometer -->
+              <svg viewBox="0 0 200 120" class="gauge-svg" aria-hidden="true" focusable="false">
+                <!-- Zones: Red (Low), Yellow (Mid), Green (High) -->
+                <path d="M10,110 A90,90 0 0,1 190,110" class="zone zone-red" />
+                <path d="M10,110 A90,90 0 0,1 190,110" class="zone zone-yellow" />
+                <path d="M10,110 A90,90 0 0,1 190,110" class="zone zone-green"/>
+                <!-- Ticks -->
+                <g class="ticks">
+                  <line x1="20" y1="105" x2="30" y2="100"></line>
+                  <line x1="60" y1="90" x2="65" y2="80"></line>
+                  <line x1="100" y1="80" x2="100" y2="68"></line>
+                  <line x1="140" y1="90" x2="135" y2="80"></line>
+                  <line x1="180" y1="105" x2="170" y2="100"></line>
+                </g>
+                <!-- Needle pivot -->
+                <circle cx="100" cy="110" r="5" class="pivot"></circle>
+                <!-- Needle (CSS transform controls rotation) -->
+                <g id="needle" class="needle">
+                  <polygon points="98,110 102,110 100,25"></polygon>
+                </g>
+              </svg>
+              <div class="gauge-label">
+                <span>Low</span>
+                <span>Mid</span>
+                <span>High</span>
+              </div>
+              <div class="gauge-reading" id="gaugeReading">—</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pill legend disclaimer -->
+      <section class="pill-legend" role="note" aria-label="Legend for pill colors">
+        <span class="legend-title">Pills:</span>
+        <span class="chip chip-cat" title="Green pill indicates a Category">Category</span>
+        <span class="chip chip-need" title="Blue pill indicates a User need">User need</span>
+      </section>
+
+      <section class="board" aria-label="Idea board">
+        <div class="column" data-column="submitted" aria-label="Submitted Ideas">
+          <header class="column-header">
+            <h2>Submitted Ideas</h2>
+          </header>
+          <div class="column-body" data-dropzone="true">
+            <div class="card" draggable="true">
+              <p>Exclusive: Inside the city’s bold plan to ban cars from downtown by 2030</p>
+            </div>
+            <div class="card" draggable="true">
+              <p>How a local bakery became a TikTok sensation overnight</p>
+            </div>
+            <div class="card" draggable="true">
+              <p>Explainer: What the latest interest rate hike means for renters</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column" data-column="in-progress" aria-label="Generate in StoryPad">
+          <header class="column-header">
+            <h2>Generate in StoryPad</h2>
+          </header>
+          <div class="column-body" data-dropzone="true">
+            <div class="card" draggable="true">
+              <p>Investigation: Where disaster relief funds really go</p>
+            </div>
+            <div class="card" draggable="true">
+              <p>Q&amp;A: The scientist racing to decode long COVID</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column" data-column="done" aria-label="Done">
+          <header class="column-header">
+            <h2>Done</h2>
+          </header>
+          <div class="column-body" data-dropzone="true">
+            <div class="card" draggable="true">
+              <p>Election 2024: What’s at stake in the first televised debate</p>
+            </div>
+            <div class="card" draggable="true">
+              <p>Data dive: The true cost of commuting in 10 major cities</p>
+            </div>
+            <div class="card" draggable="true">
+              <p>Analysis: Why wildfire seasons keep getting longer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <small>Built for quick newsroom decisions — no setup required.</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
