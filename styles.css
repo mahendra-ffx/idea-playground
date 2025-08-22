@@ -169,7 +169,7 @@ body {
 .zone-yellow { stroke: var(--yellow); stroke-dasharray: 94 284; stroke-dashoffset: 94; opacity: 0.95; }
 .zone-green { stroke: var(--green); stroke-dasharray: 94 284; stroke-dashoffset: 188; }
 
-ticks line {
+.ticks line {
   stroke: #cbd5e1;
   stroke-width: 2;
 }
@@ -262,7 +262,7 @@ ticks line {
   box-shadow: 0 4px 10px rgba(0,0,0,0.04);
   cursor: grab;
   user-select: none;
-  transition: box-shadow 0.2s ease, transform 0.1s ease, background 0.2s;
+  transition: box-shadow 0.2s ease, transform 0.1s ease, background 0.2s ease;
 }
 .card:active { cursor: grabbing; }
 .card:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
